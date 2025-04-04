@@ -1,9 +1,15 @@
-version: '3'
+version: '3.8'
+
 services:
-  firstnestapp:
-    image: firstnestapp:latest
+  app:
     container_name: NestApp
-    ports:
-      - 3000:3000
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
     volumes:
-      - ./.env:/opt/app/
+      - .:/opt/app
+      - /opt/app/node_modules
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
