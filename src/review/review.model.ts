@@ -1,24 +1,24 @@
-import { Schema, SchemaFactory, Prop } from '@nestjs/mongoose';
-import { Types } from 'mongoose';
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { Document, Types } from 'mongoose';
 
 export type ReviewDocument = Review & Document;
 
 @Schema({ timestamps: true })
 export class Review {
-	@Prop()
+	@Prop({ required: true })
 	name: string;
 
-	@Prop()
+	@Prop({ required: true })
 	title: string;
 
-	@Prop()
+	@Prop({ required: true })
 	description: string;
 
-	@Prop()
+	@Prop({ required: true, min: 1, max: 5 })
 	rating: number;
 
-	@Prop({ type: Types.ObjectId, ref: 'Product' })
+	@Prop({ type: Types.ObjectId, ref: 'Product', required: true })
 	productId: Types.ObjectId;
 }
 
-export const ReviewModel = SchemaFactory.createForClass(Review);
+export const ReviewSchema = SchemaFactory.createForClass(Review);

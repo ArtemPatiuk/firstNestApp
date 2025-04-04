@@ -1,7 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
-export type ProductDocument = ProductModel & Document;
+export type ProductDocument = Product & Document;
 
 class ProductCharacteristic {
 	@Prop()
@@ -12,7 +12,7 @@ class ProductCharacteristic {
 }
 
 @Schema({ timestamps: true })
-export class ProductModel {
+export class Product {
 	@Prop()
 	image: string;
 
@@ -53,4 +53,4 @@ export class ProductModel {
 	characteristics: ProductCharacteristic[];
 }
 
-export const ProductSchema = SchemaFactory.createForClass(ProductModel);
+export const ProductSchema = SchemaFactory.createForClass(Product);

@@ -34,10 +34,10 @@ export class TopPageAdvantage {
 	description: string;
 }
 
-export interface TopPageModel extends Base { }
+export interface TopPage extends Base { }
 
 @index({ '$**': 'text' })
-export class TopPageModel extends TimeStamps {
+export class TopPage extends TimeStamps {
 	@prop({ enum: TopLevelCategory })
 	firstCategory: TopLevelCategory;
 
@@ -74,4 +74,4 @@ export class TopPageModel extends TimeStamps {
 	@prop({ type: () => [String] })
 	tags: string[];
 }
-export const TopPageSchema = SchemaFactory.createForClass(TopPageModel);
+export const TopPageSchema = SchemaFactory.createForClass(TopPage);

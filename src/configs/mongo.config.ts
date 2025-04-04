@@ -3,7 +3,6 @@ import { MongooseModuleFactoryOptions } from '@nestjs/mongoose';
 
 
 export const getMongoConfig = async (configService: ConfigService): Promise<MongooseModuleFactoryOptions> => {
-	console.log('MongoDB URI:', getMongoString(configService));
 	return {
 		uri: getMongoString(configService)
 	}
