@@ -1,0 +1,9 @@
+version: '3'
+services:
+  firstnestapp:
+    image: firstnestapp:latest
+    container_name: NestApp
+    ports:
+      - 3000:3000
+    volumes:
+      - ./.env:/opt/app/
