@@ -1,16 +1,16 @@
 FROM node:22-alpine
-WORKDIR /opt/app
 
+WORKDIR /opt/app
 
 COPY package*.json ./
 
 
 RUN npm install --production
-
+RUN npm install -g @nestjs/cli
 
 COPY . .
 
-
 RUN npm run build
-RUN npm prune --production
-CMD ["node", "./dist/main.js"]
+
+# Старт
+CMD ["node", "dist/main"]
