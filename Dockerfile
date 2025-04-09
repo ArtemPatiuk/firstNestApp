@@ -4,13 +4,10 @@ WORKDIR /opt/app
 
 COPY package*.json ./
 
-
-RUN npm install --production
-RUN npm install -g @nestjs/cli
+RUN npm install
 
 COPY . .
 
 RUN npm run build
 
-# Старт
-CMD ["node", "dist/main"]
+CMD ["node", "dist/main.js"]
